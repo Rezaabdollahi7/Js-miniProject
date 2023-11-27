@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.pgbtn{
+    @apply m-4 bg-purple-600 text-white font-semibold px-3 py-3 rounded-md border-2 border-purple-950 hover:bg-white hover:text-purple-600 duration-200
+}
+.pgbtn.active{
+    @apply bg-blue-700
+}
+
+#list .item{
+    @apply mt-4 border w-60 px-4 rounded-lg py-2 border-gray-500
+}
