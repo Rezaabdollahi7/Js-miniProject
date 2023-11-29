@@ -2,13 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+#pagination{
+    @apply w-max mx-auto flex justify-center mt-8 bg-gradient-to-r   from-purple-700 to-purple-300 outline outline-2 outline-purple-600 outline-offset-4  rounded-2xl px-8
+}
 .pgbtn{
-    @apply m-4 bg-purple-600 text-white font-semibold px-3 py-3 rounded-md border-2 border-purple-950 hover:bg-white hover:text-purple-600 duration-200
+    @apply m-4 bg-blue-600 text-white font-semibold w-8 h-8  rounded-full flex items-center justify-center border  hover:bg-white hover:text-purple-600 duration-200
 }
 .pgbtn.active{
-    @apply bg-blue-700
+    @apply bg-blue-900
+}
+.main-items-wrapper{
+    @apply flex flex-col xl:flex-row xl:w-[95%] mx-auto px-3 500px:px-6 xl:px-8 items-center justify-center
+}
+.item-cards-wrapper{
+    @apply w-full xl:w-[90%] mx-auto mt-16 rounded-xl grid grid-cols-1 650px:grid-cols-2 lg:grid-cols-3  gap-4 relative overflow-hidden
 }
 
-#list .item{
-    @apply mt-4 border w-60 px-4 rounded-lg py-2 border-gray-500
+.item-card{
+    @apply bg-white flex flex-col justify-center items-end rounded-b-xl mt-6
+}
+.item-img {
+    @apply w-full rounded-xl
+}
+.card-body{
+    @apply px-2 flex flex-col items-end
+}
+.card-cat-wrapper{
+    @apply flex gap-4 mt-3
+}
+.card-cat {
+    @apply text-sky-500  bg-sky-500/10 px-2 rounded-md text-sm
+}
+
+.card-tittle{
+    @apply text-lg mt-3 text-end h-12
+}
+.card-desc {
+    @apply  mt-3 text-end text-sm 350px:text-[14px] leading-7 my-4 text-gray-500
+}
+.card-body hr {
+    @apply bg-gray-200/10 w-full h-[1px] my-4
+}
+.card-extra-details{
+    @apply grid grid-cols-3 gap-3 w-full px-1 1400px:pl-2
+}
+.card-extra-details .star-section-wrapper {
+    @apply flex justify-center w-1/3 1400px:w-[20%] text-left gap-1 text-sm items-baseline text-yellow-400
+}
+
+.card-extra-details .clock-section-wrapper {
+    @apply text-neutral-400 flex justify-center text-[13px] 400px:text-base  650px:text-[14px] 750px:text-base gap-2 text-sm 1400px:text-[14px] items-baseline
+}
+.card-extra-details .author-section-wrapper{
+    @apply text-neutral-400 flex justify-end text-[13px] 400px:text-base 650px:text-[14px] 750px:text-base gap-1 xl:gap-2 text-sm 1400px:text-[14px] items-center
+}
+.card-footer {
+    @apply grid grid-cols-2 w-full mb-5
+}
+.card-footer .course-price-wrapper {
+    @apply flex gap-1 text-green-500 justify-start items-center
+}
+.card-footer .course-price-wrapper .course-price {
+    @apply text-green-500
+}
+
+.card-footer .users-counter-wrapper {
+    @apply ml-auto gap-2 text-slate-600 flex justify-center items-center
 }
