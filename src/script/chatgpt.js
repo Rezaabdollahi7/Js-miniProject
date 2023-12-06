@@ -24,7 +24,6 @@ let rowsCount = 3
 
 function displayUesrsList(allUesrsArray, usersContainer, rowsCount, currentPage) {
     usersContainer.innerHTML = ''
-
     let endIndex = rowsCount * currentPage
     let startIndex = endIndex - rowsCount
 
@@ -32,123 +31,56 @@ function displayUesrsList(allUesrsArray, usersContainer, rowsCount, currentPage)
 
     paginatedItems.forEach(function (e) {
         // item
-        let itemCard = document.createElement('div');
-        itemCard.classList.add('item-card')
+        let itemCard = `
+          <div class="item-card ">
+            <img class=" item-img " src = ${e.imgSrc} >
+            <div class="card-body ">
+                <div class="card-cat-wrapper  ">
+                    <span class="card-cat">PHP</span>
+                    <span class="card-cat">Backend</span>
+                </div>
+                <h3 class="card-tittle">${e.tittle}</h3>
+                <p class="card-desc "> ${e.desc}</p>
 
-        let cardImg = document.createElement('img');
-        cardImg.classList.add('item-img')
-        cardImg.src = e.imgSrc;
-        itemCard.appendChild(cardImg)
+                <div class="card-extra-details">
+                    <div class="star-section-wrapper ">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="star-count">${e.courseStar}</span>
+                    </div>
 
-        // card body
-        let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body')
+                    <div class="clock-section-wrapper ">
+                        <span class="clock-time">${e.courseTime}</span>
+                        <i class="fa-regular   fa-clock"></i>
+                    </div>
+                    <div class="author-section-wrapper ">
+                        <span class="author-name">${e.author}</span>
+                        <i class="fa-solid fa-user "></i>
+                    </div>
+                </div>
 
-        let cardCatWrapper = document.createElement('div');
-        cardCatWrapper.classList.add('card-cat-wrapper')
+                <hr class="bg-black">
+                <div class="card-footer">
+                    <div class="course-price-wrapper ">
+                        <span class="course-price">${e.coursePrice}</span>
+                        <span>تومان</span>
+                    </div>
+                    <div class="users-counter-wrapper">
+                        <span class="users-counter">${e.customers}</span>
+                        <i class="fa-solid fa-users "></i>
+                    </div>
 
-        for (i = 0; i < e.courseCat.length; i++) {
-            let cardCat = document.createElement('span');
-            cardCat.classList.add('card-cat')
-            cardCat.innerHTML = e.courseCat[i];
-            cardCatWrapper.appendChild(cardCat)
-        }
-
-
-        let cardTittle = document.createElement('h3');
-        cardTittle.classList.add('card-tittle')
-        cardTittle.innerHTML = e.tittle
-
-
-        let cardDesc = document.createElement('p');
-        cardDesc.classList.add('card-desc')
-        cardDesc.innerHTML = e.desc
-
-        // extra details
-        let cardExtraDetails = document.createElement('div');
-        cardExtraDetails.classList.add('card-extra-details')
-        // star section
-        let starSectionWrapper = document.createElement('div');
-        starSectionWrapper.classList.add('star-section-wrapper')
-        let iStar = document.createElement('i');
-        iStar.classList.add('fa-solid')
-        iStar.classList.add('fa-star')
-        let starCount = document.createElement('span');
-        starCount.classList.add('star-count')
-        starCount.innerHTML = e.courseStar
-        starSectionWrapper.appendChild(iStar)
-        starSectionWrapper.appendChild(starCount)
-        // clock section
-        let clockSectionWrapper = document.createElement('div');
-        clockSectionWrapper.classList.add('clock-section-wrapper')
-        let iClock = document.createElement('i');
-        iClock.classList.add('fa-regular')
-        iClock.classList.add('fa-clock')
-        let clockTime = document.createElement('span');
-        clockTime.classList.add('clock-time')
-        clockTime.innerHTML = e.courseTime
-        clockSectionWrapper.appendChild(clockTime)
-        clockSectionWrapper.appendChild(iClock)
-        //author section
-        let authorSectionWrapper = document.createElement('div');
-        authorSectionWrapper.classList.add('author-section-wrapper')
-        let iAuthor = document.createElement('i');
-        iAuthor.classList.add('fa-solid')
-        iAuthor.classList.add('fa-user')
-        let authorName = document.createElement('span');
-        authorName.classList.add('author-name')
-        authorName.innerHTML = e.author
-        authorSectionWrapper.appendChild(authorName)
-        authorSectionWrapper.appendChild(iAuthor)
-        // en of extra details
-
-        let hrElem = document.createElement('hr')
-
-        // footer
-        let cardFooter = document.createElement('div');
-        cardFooter.classList.add('card-footer')
-
-        // price
-        let coursePriceWrapper = document.createElement('div');
-        coursePriceWrapper.classList.add('course-price-wrapper')
-        let coursePrice = document.createElement('span');
-        coursePrice.classList.add('course-price')
-        coursePrice.innerHTML = e.coursePrice
-        let coursePriceElem = document.createElement('span');
-        coursePriceElem.innerHTML = 'تومان'
-        coursePriceWrapper.appendChild(coursePrice)
-        coursePriceWrapper.appendChild(coursePriceElem)
-        // users
-        let usersCounterWrapper = document.createElement('div');
-        usersCounterWrapper.classList.add('users-counter-wrapper')
-        let usersCounter = document.createElement('span');
-        usersCounter.classList.add('users-counter')
-        usersCounter.innerHTML = e.customers
-        let iUsers = document.createElement('i');
-        iUsers.classList.add('fa-regular')
-        iUsers.classList.add('fa-clock')
-        usersCounterWrapper.appendChild(usersCounter)
-        usersCounterWrapper.appendChild(iUsers)
-        // end footer
-
-        itemCard.appendChild(cardBody)
-        cardBody.appendChild(cardCatWrapper)
-        cardBody.appendChild(cardTittle)
-        cardBody.appendChild(cardDesc)
-        cardBody.appendChild(cardExtraDetails)
-        cardExtraDetails.appendChild(starSectionWrapper)
-        cardExtraDetails.appendChild(clockSectionWrapper)
-        cardExtraDetails.appendChild(authorSectionWrapper)
-        cardBody.appendChild(hrElem)
-        cardBody.appendChild(cardFooter)
-        cardFooter.appendChild(coursePriceWrapper)
-        cardFooter.appendChild(usersCounterWrapper)
-        coursePriceWrapper.appendChild(coursePrice)
-        coursePriceWrapper.appendChild(coursePriceElem)
+                </div>
+            </div>
 
 
+        </div>
 
-        usersContainer.appendChild(itemCard)
+        `
+
+
+        let tempContainer = document.createElement('div');
+        tempContainer.innerHTML = itemCard;
+        usersContainer.appendChild(tempContainer);
     })
 
 }
