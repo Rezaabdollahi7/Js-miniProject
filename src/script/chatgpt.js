@@ -30,15 +30,18 @@ function displayUesrsList(allUesrsArray, usersContainer, rowsCount, currentPage)
     let paginatedItems = allUesrsArray.slice(startIndex, endIndex)
 
     paginatedItems.forEach(function (e) {
+        // Using e.courseCat instead of e
+        let itemsCatSpans = e.courseCat.map(category => `<span class="card-cat">${category}</span>`).join('');
+
+        // Creating the card-cat-wrapper HTML with the generated spans
+        let cardCatWrapperHTML = `<div class="card-cat-wrapper">${itemsCatSpans}</div>`;
+
         // item
         let itemCard = `
           <div class="item-card ">
             <img class=" item-img " src = ${e.imgSrc} >
             <div class="card-body ">
-                <div class="card-cat-wrapper  ">
-                    <span class="card-cat">PHP</span>
-                    <span class="card-cat">Backend</span>
-                </div>
+                 ${cardCatWrapperHTML}
                 <h3 class="card-tittle">${e.tittle}</h3>
                 <p class="card-desc "> ${e.desc}</p>
 
