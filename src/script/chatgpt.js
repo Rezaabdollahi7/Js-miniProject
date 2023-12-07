@@ -23,21 +23,25 @@ let currentPage = 1
 let rowsCount = 3
 
 function displayUesrsList(allUesrsArray, usersContainer, rowsCount, currentPage) {
-    usersContainer.innerHTML = ''
-    let endIndex = rowsCount * currentPage
-    let startIndex = endIndex - rowsCount
+    if (allUesrsArray.length == 0) {
+        console.log(`empty`);
+        usersContainer.innerHTML = 'Not Found'
+    } else {
+        usersContainer.innerHTML = ''
+        let endIndex = rowsCount * currentPage
+        let startIndex = endIndex - rowsCount
 
-    let paginatedItems = allUesrsArray.slice(startIndex, endIndex)
+        let paginatedItems = allUesrsArray.slice(startIndex, endIndex)
 
-    paginatedItems.forEach(function (e) {
-        // Using e.courseCat instead of e
-        let itemsCatSpans = e.courseCat.map(category => `<span class="card-cat">${category}</span>`).join('');
+        paginatedItems.forEach(function (e) {
+            // Using e.courseCat instead of e
+            let itemsCatSpans = e.courseCat.map(category => `<span class="card-cat">${category}</span>`).join('');
 
-        // Creating the card-cat-wrapper HTML with the generated spans
-        let cardCatWrapperHTML = `<div class="card-cat-wrapper">${itemsCatSpans}</div>`;
+            // Creating the card-cat-wrapper HTML with the generated spans
+            let cardCatWrapperHTML = `<div class="card-cat-wrapper">${itemsCatSpans}</div>`;
 
-        // item
-        let itemCard = `
+            // item
+            let itemCard = `
           <div class="item-card ">
             <img class=" item-img " src = ${e.imgSrc} >
             <div class="card-body ">
@@ -81,10 +85,12 @@ function displayUesrsList(allUesrsArray, usersContainer, rowsCount, currentPage)
         `
 
 
-        let tempContainer = document.createElement('div');
-        tempContainer.innerHTML = itemCard;
-        usersContainer.appendChild(tempContainer);
-    })
+            let tempContainer = document.createElement('div');
+            tempContainer.innerHTML = itemCard;
+            usersContainer.appendChild(tempContainer);
+        })
+    }
+
 
 }
 
@@ -142,4 +148,14 @@ function filterCourses(category) {
         setupPagination(filteredCourses, paginationContainer, rowsCount)
 
     }
+}
+
+function performSearch() {
+
+    const searchText = document.getElementById('searchBox').value.toLowerCase();
+
+    const searchResults = listItems.filter(item => item.tittle.toLowerCase().includes(searchText));
+
+    displayUesrsList(searchResults, itemListContainer, rowsCount, currentPage);
+    setupPagination(searchResults, paginationContainer, rowsCount);
 }

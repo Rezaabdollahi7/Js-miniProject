@@ -13,7 +13,6 @@
 
 <body class="bg-slate-200">
 
-       <!-- Container for checkboxes -->
     <div id="checkboxContainer" class="w-1/2 mx-auto flex justify-between flex-col">
         <h1 class="text-center text-3xl font-semibold text-blue-500">Choose Your Category : </h1>
         <div class="cat-items-wrapper mt-8 w-full flex justify-between">
@@ -23,7 +22,9 @@
             <span class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100" onclick="filterCourses('php')">PHP</span>
             <span class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100" onclick="filterCourses('all')">all</span>
         </div>
-            <!-- Add more checkboxes for other categories -->
+
+        <input class="mt-8 rounded-full py-2 px-3 outline outline-1 outline-sky-300 outline-offset-2 w-max pr-32 mx-auto " placeholder="Type Anythings for search ..."  type="text" id="searchBox" oninput="performSearch()">
+
     </div>
     
     <div class="main-items-wrapper ">
