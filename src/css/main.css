@@ -534,6 +534,11 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mt-16 {
   margin-top: 4rem;
 }
@@ -546,8 +551,16 @@ video {
   display: flex;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-full {
   width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-col {
@@ -562,12 +575,21 @@ video {
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .bg-yellow-200\/20 {
   background-color: rgb(254 240 138 / 0.2);
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 #pagination {
@@ -652,7 +674,7 @@ video {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(1, minmax(0, 1fr));

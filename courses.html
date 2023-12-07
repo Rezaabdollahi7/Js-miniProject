@@ -13,6 +13,19 @@
 
 <body class="bg-yellow-200/20">
 
+       <!-- Container for checkboxes -->
+    <div id="checkboxContainer" class="w-1/2 mx-auto flex justify-between flex-col">
+        <h1 class="text-center text-3xl">Choose Your Category : </h1>
+        <div class="cat-items-wrapper mt-8 w-full flex justify-between">
+
+            <span class="cursor-pointer" onclick="filterCourses('frontend')">Frontend</span>
+            <span class="cursor-pointer" onclick="filterCourses('backend')">Backend</span>
+            <span class="cursor-pointer" onclick="filterCourses('php')">PHP</span>
+            <span class="cursor-pointer" onclick="filterCourses('all')">all</span>
+        </div>
+            <!-- Add more checkboxes for other categories -->
+    </div>
+    
     <div class="main-items-wrapper ">
 
         <div class="list-and-pag-wrapper ">
