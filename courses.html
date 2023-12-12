@@ -17,23 +17,24 @@
 
 <body class="bg-slate-200">
 
-    <div id="checkboxContainer" class="w-1/2 mx-auto flex justify-between flex-col">
+    <div id="checkboxContainer" class="w-full xl:w-[90%]  mx-auto flex justify-between flex-col">
         <h1 class="text-center text-3xl font-semibold text-blue-500">Choose Your Category : </h1>
-        <div class="cat-items-wrapper mt-8 w-full flex justify-between">
+        <div class="cat-items-wrapper mt-8 w-full grid grid-cols-2 lg:grid-cols-5     gap-6 px-4 ">
 
             <span
-                class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
+                class="cursor-pointer col-span-1  hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
                 onclick="filterCourses('frontend')">Frontend</span>
             <span
-                class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
+                class="cursor-pointer col-span-1  hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
                 onclick="filterCourses('backend')">Backend</span>
             <span
-                class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
+                class="cursor-pointer col-span-1  hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
                 onclick="filterCourses('php')">PHP</span>
             <span
-                class="cursor-pointer hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
+                class="cursor-pointer col-span-1  hover:outline hover:outline-1 hover:outline-offset-2   hover:bg-purple-500 hover:text-white px-4 py-1 rounded-lg bg-white  hover:outline-purple-400 transition-all duration-100"
                 onclick="filterCourses('all')">all</span>
-            <div class=" flex items-center justify-center">
+
+            <div class=" flex items-center justify-center mx-auto col-span-2 lg:col-span-1">
                 <div class="relative inline-block text-left">
                     <button id="dropdown-button"
                         class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
@@ -79,50 +80,86 @@
     </div>
 
     <div class="products">
-        <div class="dropdown-section-wrappper   ">
+        <div class="dropdown-section-wrappper mt-8 ml-4  ">
             <div x-data="{ dropdown1: false, dropdown2: false, dropdown3: false } "
-                class="flex flex-col justify-center items-center relative mt-7">
+                class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-1  justify-center items-center relative my-7">
                 <!-- Dropdown 1 -->
-                <div class="relative inline-block">
+                <div class="relative inline-bloc  ">
                     <button @click="dropdown1 = !dropdown1" class=" px-4 py-2 rounded w-40">
                         Dropdown 1
                     </button>
                     <div x-show="dropdown1" @click.away="dropdown1 = false"
-                        class="block mt-2  border rounded w-40 shadow-md">
+                        class="block mt-2  border rounded w-40 shadow-md  ">
                         <ul>
-                            <li class="py-2  px-4 text-center">Item 2</li>
-                            <li class="py-2  px-4 text-center">Item 3</li>
-                            <li class="py-2  px-4 text-center">Item 1</li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Dropdown 2 -->
-                <div class="relative inline-block ">
-                    <button @click="dropdown2 = !dropdown2" class=" px-4 py-2 rounded w-40 mt-5">
+                <div class="relative inline-block   ">
+                    <button @click="dropdown2 = !dropdown2" class=" px-4 py-2 rounded w-40 mt-5 md:mt-0">
                         Dropdown 2
                     </button>
                     <div x-show="dropdown2" @click.away="dropdown2 = false"
-                        class=" mt-2 block   border rounded w-40 shadow-md">
+                        class=" mt-2 block   border rounded w-40 shadow-md  ">
                         <ul>
-                            <li class="py-2 px-4 text-center">Item B</li>
-                            <li class="py-2 px-4 text-center">Item C</li>
-                            <li class="py-2 px-4 text-center">Item A</li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Dropdown 3 -->
-                <div class="relative inline-block ">
-                    <button @click="dropdown3 = !dropdown3" class=" px-4 py-2 rounded w-40 mt-5">
+                <div class="relative inline-block   ">
+                    <button @click="dropdown3 = !dropdown3" class=" px-4 py-2 rounded w-40 mt-5 lg:mt-0">
                         Dropdown 3
                     </button>
                     <div x-show="dropdown3" @click.away="dropdown3 = false"
-                        class="block mt-2  border rounded w-40 shadow-md">
+                        class="block mt-2  border rounded w-40 shadow-md  ">
                         <ul>
-                            <li class="py-2 px-4 text-center">Item X</li>
-                            <li class="py-2 px-4 text-center">Item Y</li>
-                            <li class="py-2 px-4 text-center">Item Z</li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
+                            <li
+                                class="py-2  px-4 text-center flex justify-center items-center hover:bg-white hover:cursor-pointer hover:text-blue-900 ">
+                                <img class="w-3 h-3  mr-4" src="./src/icons/arrow-right.png" alt="icon">
+                                item 1
+                            </li>
                         </ul>
                     </div>
                 </div>
